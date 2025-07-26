@@ -1,9 +1,15 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+import Navigation from "@/components/Navigation/Navigation";
+import MenuBar from "@/components/MenuBar/MenuBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400"]
 });
 
 const geistMono = Geist_Mono({
@@ -19,8 +25,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={`${poppins.className} bg-slate-800`}>
+        <Navigation />
+        <div className="block lg:hidden">
+          <h1 className="text-lg text-center text-white mt-5">Only for Desktop</h1>
+        </div>
+        <div className="lg:block hidden">
+          <div className=" w-screen h-[860px] grid grid-cols-[0.25fr_0.75fr] mt-2">
+            <div className="bg-slate-500 rounded-lg"><MenuBar /></div>
+            <div className="p-5">{children}</div>
+          </div>
+
+        </div>
+
       </body>
     </html>
   );
