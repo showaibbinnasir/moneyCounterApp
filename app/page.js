@@ -1,9 +1,12 @@
 import TransactionHistory from "@/components/TransactionHistory/TransactionHistory";
 import UpdateCredit from "@/components/UpdateCredit/UpdateCredit";
 import UpdateDateAndTime from "@/components/UpdateDateAndTime/UpdateDateAndTime";
+import getTotalCreditedAmount from "@/components/util/getTotalCreditedAmount";
 
-export default function Home() {
 
+export default async function Home() {
+  // const totalDebited = await getTotalCreditedAmount()
+  // console.log(totalDebited);
   return (
     <div className="grid grid-cols-2">
       <div>
@@ -19,7 +22,7 @@ export default function Home() {
 
             </div>
             <div className=" bg-yellow-500 flex flex-col justify-center items-center h-[150px] p-5 rounded-lg">
-                <h1 className="text-white text-2xl font-semibold">450/=</h1>
+                <h1 className="text-white text-2xl font-semibold">500/=</h1>
                 <h1 className="text-white">Debited</h1>
             </div>
           </div>
