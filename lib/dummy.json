@@ -1,0 +1,17 @@
+[
+    {
+        "transName" : "Brought Apple",
+        "amount" : "450/=",
+        "createdAt" : "12th Octber, 04:55PM"
+    },
+    {
+        "transName" : "Brought Mango",
+        "amount" : "250/=",
+        "createdAt" : "12th Octber, 04:50PM"
+    },
+    {
+        "transName" : "Brought Cucumber",
+        "amount" : "75/=",
+        "createdAt" : "12th Octber, 04:45PM"
+    }
+]

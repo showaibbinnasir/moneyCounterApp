@@ -27,7 +27,7 @@ const CreditFund = () => {
                             className="mt-4 px-4 py-2 bg-green-700 text-white rounded hover:bg-slate-600"
                             onClick={() => setCShowCreditModal(false)}
                         >
-                            Deposite now
+                            Credit now
                         </button>
                         <button
                             className="mt-4 px-4 py-2 bg-slate-500 text-white rounded hover:bg-slate-600"
@@ -41,5 +41,8 @@ const CreditFund = () => {
         </div>
     );
 };
+
+// showaibPersonalWallet
+// AglKHPAzT50qKG6m
 
 export default CreditFund;
