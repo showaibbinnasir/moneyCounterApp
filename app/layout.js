@@ -1,21 +1,15 @@
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import "./style.css";
 import Navigation from "@/components/Navigation/Navigation";
 import MenuBar from "@/components/MenuBar/MenuBar";
+import MobileView from "@/components/MobileView/MobileView";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400"]
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -27,13 +21,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${poppins.className} bg-slate-800`}>
         <Navigation />
-        <div className="block lg:hidden">
-          <h1 className="text-lg text-center text-white mt-5">Only for Desktop</h1>
-        </div>
+        <MobileView/>
         <div className="lg:block hidden">
-          <div className=" w-screen h-[860px] grid grid-cols-[0.25fr_0.75fr] mt-2">
+          <div className=" w-screen  grid grid-cols-[0.25fr_0.75fr] mt-2">
             <div className="bg-slate-500 rounded-lg"><MenuBar /></div>
-            <div className="p-5">{children}</div>
+            <div className="p-5 h-[860px] overflow-y-scroll ">{children}</div>
           </div>
 
         </div>
