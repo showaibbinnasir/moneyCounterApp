@@ -1,5 +1,9 @@
 export default async function getTotalCreditedAmount() {
-    const url = await fetch(`https://showaibwallet.vercel.app/api/getTransactionDetails`);
+    const url = await fetch(`https://showaibwallet.vercel.app/api/getTransactionDetails`,{
+        next : {
+          revalidate : 1,
+        }
+    });
     const data = await url.json()
     const totalDebited = data
   .filter(tx => tx.category === 'debited')
