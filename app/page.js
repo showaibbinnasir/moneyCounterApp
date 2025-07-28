@@ -5,8 +5,8 @@ import getTotalCreditedAmount from "@/components/util/getTotalCreditedAmount";
 
 
 export default async function Home() {
-  // const totalDebited = await getTotalCreditedAmount()
-  // console.log(totalDebited);
+  const totalDebited = await getTotalCreditedAmount()
+  console.log(totalDebited);
   return (
     <div className="grid grid-cols-2">
       <div>
@@ -22,7 +22,7 @@ export default async function Home() {
 
             </div>
             <div className=" bg-yellow-500 flex flex-col justify-center items-center h-[150px] p-5 rounded-lg">
-                <h1 className="text-white text-2xl font-semibold">500/=</h1>
+                <h1 className="text-white text-2xl font-semibold">{totalDebited}/=</h1>
                 <h1 className="text-white">Debited</h1>
             </div>
           </div>
