@@ -9,8 +9,8 @@ const UpdateCredit = () => {
      
     return (
         <div className="">
-            <DepositeFund/>
             <CreditFund/>
+            <DepositeFund/>
             
         </div>
     );
