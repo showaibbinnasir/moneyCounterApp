@@ -2,8 +2,11 @@ import TransactionHistory from "../TransactionHistory/TransactionHistory";
 import CreditFund from "../UpdateCredit/CreditFund";
 import DepositeFund from "../UpdateCredit/DepositeFund";
 import UpdateDateAndTime from "../UpdateDateAndTime/UpdateDateAndTime";
+import { getTotalCreditedAmount, getTotalDebitedAmount } from "../util/getTotalCreditedAmount";
 
-const MobileView = () => {
+const MobileView = async() => {
+    const totalCredited = await getTotalCreditedAmount()
+      const totalDebited = await getTotalDebitedAmount()
     return (
         <div>
             <div className="block lg:hidden">
@@ -13,8 +16,8 @@ const MobileView = () => {
                         <UpdateDateAndTime/>
                     </div>
                     <h1 className="text-white text-xl text-center">Hello, <span className="text-yellow-500">Showaib bin Nasir</span></h1>
-                    <h1 className="text-white text-lg text-center">You have expended <span className="text-red-500">450/=</span></h1>
-                    <h1 className="text-white text-lg text-center">You should have <span className="text-green-500">300/=</span> on your wallet</h1>
+                    <h1 className="text-white text-lg text-center">You have expended <span className="text-red-500">{totalDebited}/=</span></h1>
+                    <h1 className="text-white text-lg text-center">You should have <span className="text-green-500">{totalCredited - totalDebited}/=</span> on your wallet</h1>
                     <div className="p-5">
                         <DepositeFund />
                         <CreditFund />
