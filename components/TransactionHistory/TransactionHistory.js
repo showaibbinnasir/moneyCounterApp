@@ -67,7 +67,7 @@ const TransactionHistory = () => {
                     <h1>Loading...</h1> :
                     <div>
                         {
-                            data?.map((item, i) => <div key={i}>
+                            data?.map((item, i) => <div data-aos="fade-in" key={i}>
                                 <div className="p-2 border-b-2 border-green-800">
                                     <h1 className="text-green-800 font-semibold text-xl">{item?.transName}</h1>
                                     <h1 className="text-white">{item?.amount}/=</h1>

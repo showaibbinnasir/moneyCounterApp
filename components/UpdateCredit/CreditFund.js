@@ -69,7 +69,7 @@ const CreditFund = () => {
     }
     return (
         <div>
-            <div onClick={() => setCShowCreditModal(true)} className="bg-green-700 hover:bg-green-800 h-[150px] cursor-pointer p-5 rounded-lg my-5 flex justify-center items-center">
+            <div data-aos="flip-right" onClick={() => setCShowCreditModal(true)} className="bg-green-700 hover:bg-green-800 h-[150px] cursor-pointer p-5 rounded-lg my-5 flex justify-center items-center">
                 <h1 className="text-white text-2xl font-semibold">Credit Fund</h1>
             </div>
             <CustomModal show={showCreditModal} onClose={() => setCShowCreditModal(true)} bgColor={"green-700"}>

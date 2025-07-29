@@ -5,6 +5,9 @@ import Navigation from "@/components/Navigation/Navigation";
 import MenuBar from "@/components/MenuBar/MenuBar";
 import MobileView from "@/components/MobileView/MobileView";
 import { ToastContainer } from "react-toastify";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import AOSInit from "@/components/util/AosInit";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -34,6 +37,7 @@ export default function RootLayout({ children }) {
 
         </div>
         <ToastContainer/>
+        <AOSInit/>
       </body>
     </html>
   );

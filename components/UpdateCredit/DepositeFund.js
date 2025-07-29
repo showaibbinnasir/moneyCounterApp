@@ -44,7 +44,7 @@ const DepositeFund = () => {
     }
     return (
         <div>
-            <div onClick={() => setCShowDebitModal(true)} className="bg-yellow-500 hover:bg-yellow-600 transition-all h-[150px] p-5 rounded-lg my-5 flex cursor-pointer justify-center items-center">
+            <div data-aos="flip-left" onClick={() => setCShowDebitModal(true)} className="bg-yellow-500 hover:bg-yellow-600 transition-all h-[150px] p-5 rounded-lg my-5 flex cursor-pointer justify-center items-center">
                 <h1 className="text-white text-2xl font-semibold">Deposit Fund</h1>
             </div>
             <CustomModal bgColor={"yellow-500"} show={showDebitModal} onClose={() => setCShowDebitModal(true)}>
