@@ -5,59 +5,41 @@ import CustomModal from "../CustomModal/CustomModal";
 const DepositeFund = () => {
 
     const [showDebitModal, setCShowDebitModal] = useState(false);
-    function formatCustomDate(date) {
-        const day = date.getDate();
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-        const month = monthNames[date.getMonth()];
-        const year = date.getFullYear();
-
-        const hours24 = date.getHours();
-        const hours = hours24 % 12 || 12; // Convert to 12-hour format
-        const minutes = date.getMinutes().toString().padStart(2, '0');
-        const ampm = hours24 >= 12 ? 'PM' : 'AM';
-
-        // Add ordinal suffix to day (e.g., 1st, 2nd, 3rd)
-        const getOrdinal = (n) => {
-            if (n > 3 && n < 21) return 'th';
-            switch (n % 10) {
-                case 1: return 'st';
-                case 2: return 'nd';
-                case 3: return 'rd';
-                default: return 'th';
-            }
-        };
-
-        return `${day}${getOrdinal(day)} ${month}, ${year} ${hours}:${minutes}${ampm}`;
-    }
+    
     const handleDepostBtn = async e => {
         e.preventDefault()
         const form = e.target;
         const transName = form.transName.value;
         const amount = form.amount.value;
+        const password = form.password.value;
         // console.log({amount, transName});
         // setCShowDebitModal(false)
         const now = new Date()
-        const createdAt = formatCustomDate(now)
+        const createdAt = now
         const category = "debited"
         const postData = { transName, amount, category, createdAt }
         console.log(postData);
-        try {
-            const response = await fetch("/api/postTransactionDetails", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(postData),
-            });
+        if (password == 19524) {
+            try {
+                const response = await fetch("/api/postTransactionDetails", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(postData),
+                });
 
-            const result = await response.json();
-            console.log(result);
+                const result = await response.json();
+                setCShowDebitModal(false)
+                alert("successfull")
 
-        } catch(err) {
-            console.log(err.message);
+
+            } catch (err) {
+                alert(result, 'Success')
+                console.log(err.message);
+            }
+        }else{
+            alert("You are not authorised to proceed further!!!")
         }
     }
     return (
@@ -77,6 +59,10 @@ const DepositeFund = () => {
                     <div className="my-5">
                         <h1 className="text-yellow-500">Input amount you want to spend:</h1>
                         <input name="amount" type="number" className="p-2 w-full border-yellow-500 border-b-2 rounded-lg transition-all focus:outline-dotted focus:text-xl" required placeholder="input amount" />
+                    </div>
+                    <div className="my-5">
+                        <h1 className="text-yellow-500">Input Password:</h1>
+                        <input name="password" type="password" className="p-2 w-full border-yellow-500 border-b-2 rounded-lg transition-all focus:outline-dotted focus:text-xl" required placeholder="input password" />
                     </div>
                     <div className="flex gap-5">
                         <button type="submit"

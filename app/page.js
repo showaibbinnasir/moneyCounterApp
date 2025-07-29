@@ -6,15 +6,13 @@ import {getTotalCreditedAmount, getTotalDebitedAmount } from "@/components/util/
 
 export default async function Home() {
   const totalCredited = await getTotalCreditedAmount()
-  console.log(totalCredited);
   const totalDebited = await getTotalDebitedAmount()
-  console.log(totalDebited);
   return (
     <div className="grid grid-cols-2">
       <div>
         <h1 className="text-white text-xl">Hello, <span className="text-yellow-500">Showaib bin Nasir</span></h1>
         <UpdateDateAndTime/>
-        <h1 className="text-white text-lg">You have expended <span className="text-green-500">{450} </span>Taka today</h1>
+        <h1 className="text-white text-lg">You have expended <span className="text-green-500">{totalDebited} </span>Taka today</h1>
         <div className="mt-5 pr-5">
           <h1 className="text-white text-xl font-semibold">Todays History</h1>
           <div className="grid grid-cols-2 mt-2 gap-5">
