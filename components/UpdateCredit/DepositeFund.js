@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react";
 import CustomModal from "../CustomModal/CustomModal";
+import { toast } from "react-toastify";
 
 const DepositeFund = () => {
 
@@ -31,15 +32,14 @@ const DepositeFund = () => {
 
                 const result = await response.json();
                 setCShowDebitModal(false)
-                alert("successfull")
+                toast.success("successfully debited money!")
 
 
             } catch (err) {
-                alert(result, 'Success')
-                console.log(err.message);
+                toast.error("Something went wrong, try again later!")
             }
         }else{
-            alert("You are not authorised to proceed further!!!")
+            toast.error("You are not authorised to proceed further, input correct password!!")
         }
     }
     return (

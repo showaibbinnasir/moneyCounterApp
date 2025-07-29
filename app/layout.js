@@ -4,6 +4,7 @@ import "./style.css";
 import Navigation from "@/components/Navigation/Navigation";
 import MenuBar from "@/components/MenuBar/MenuBar";
 import MobileView from "@/components/MobileView/MobileView";
+import { ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,11 +22,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${poppins.className} bg-slate-800`}>
         <Navigation />
-        <MobileView/>
+        <MobileView />
         <div className="lg:block hidden">
           <div className=" w-screen  grid grid-cols-[0.25fr_0.75fr] mt-2">
             <div className="bg-slate-500 rounded-lg"><MenuBar /></div>
-            <div className="p-5 h-[860px] overflow-y-scroll ">{children}</div>
+            <div className="p-5 h-[860px] overflow-y-scroll ">
+              {children}
+              <ToastContainer/>
+            </div>
           </div>
 
         </div>

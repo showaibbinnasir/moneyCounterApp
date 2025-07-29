@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
+import { RingLoader } from "react-spinners";
 
 const TransactionHistory = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -47,7 +48,7 @@ const TransactionHistory = () => {
         return `${day}${getOrdinal(day)} ${month}, ${year} ${hours}:${minutes}${ampm}`;
     }
     // console.log(data);
-    if (!data) return <p>Loading...</p>;
+    if (!data) return <div className="flex justify-center mt-[150px]"><RingLoader color="#ffffff" size={120} /></div>;
     return (
         <div>
             {
