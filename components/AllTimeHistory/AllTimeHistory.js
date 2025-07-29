@@ -1,34 +1,26 @@
 'use client'
-import { useEffect, useState } from "react";
-import { RingLoader } from "react-spinners";
+import React, { useEffect, useState } from 'react';
+import { RingLoader } from 'react-spinners';
 
-const TransactionHistory = () => {
+const AllTimeHistory = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     const [data, setData] = useState("")
-    
+
     useEffect(() => {
         setIsLoading(true)
-        const today =new Date()
+        const today = new Date()
         fetch('api/getTransactionDetails')
             .then(res => res.json())
             .then(data => {
                 setIsLoading(false)
-                const filteredData = data.filter(tx => {
-                    const createdDate = new Date(tx.createdAt);
-
-                    return (
-                        createdDate.getDate() === today.getDate() &&
-                        createdDate.getMonth() === today.getMonth() &&
-                        createdDate.getFullYear() === today.getFullYear()
-                    );
-                })
-                setData(filteredData)
+                setData(data)
             }).catch(err => {
                 setIsLoading(false)
                 alert(err.message)
             })
     }, [])
+
     function formatCustomDate(datestr) {
         const date = new Date(datestr)
         const day = date.getDate();
@@ -58,11 +50,12 @@ const TransactionHistory = () => {
 
         return `${day}${getOrdinal(day)} ${month}, ${year} ${hours}:${minutes}${ampm}`;
     }
-    // console.log(data);
+
     if (!data) return <div className="flex justify-center mt-[150px]"><RingLoader color="#ffffff" size={120} /></div>;
     return (
         <div>
             {
+
                 isLoading ?
                     <h1>Loading...</h1> :
                     <div>
@@ -76,10 +69,10 @@ const TransactionHistory = () => {
                             </div>)
                         }
                     </div>
-            }
 
+            }
         </div>
     );
 };
 
-export default TransactionHistory;
+export default AllTimeHistory;

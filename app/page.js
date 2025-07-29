@@ -33,7 +33,7 @@ export default async function Home() {
         </div>
       </div>
       <div>
-        <h1 className="text-xl text-white" >Transaction History</h1>
+        <h1 className="text-xl text-white" >Transaction History (Today)</h1>
         <div className="mt-2 bg-yellow-500 h-[585px] overflow-y-scroll rounded-lg p-5">
           <TransactionHistory />
         </div>
