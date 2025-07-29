@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.className} bg-slate-800`}>
         <Navigation />
         <MobileView />
-        <div className="lg:block hidden">
+        <div className="lg:block md:block hidden">
           <div className=" w-screen  grid grid-cols-[0.25fr_0.75fr] mt-2">
             <div className="bg-slate-500 rounded-lg"><MenuBar /></div>
             <div className="p-5 h-[860px] overflow-y-scroll ">

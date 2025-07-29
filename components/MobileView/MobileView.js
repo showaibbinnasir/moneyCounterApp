@@ -9,7 +9,7 @@ const MobileView = async() => {
       const totalDebited = await getTotalDebitedAmount()
     return (
         <div>
-            <div className="block lg:hidden">
+            <div className="block md:hidden lg:hidden">
                 <h1 className="text-lg text-center text-white mt-5">All the features avaialble on Desktop mode.</h1>
                 <div className=" mt-5">
                     <div className="flex justify-center">
