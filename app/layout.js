@@ -28,12 +28,12 @@ export default function RootLayout({ children }) {
             <div className="bg-slate-500 rounded-lg"><MenuBar /></div>
             <div className="p-5 h-[860px] overflow-y-scroll ">
               {children}
-              <ToastContainer/>
+              
             </div>
           </div>
 
         </div>
-
+        <ToastContainer/>
       </body>
     </html>
   );
